@@ -7,6 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
+
+    /* ============================================================
+       RESET & CSS VARIABLES
+    ============================================================ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --bg:        #070b10;
@@ -30,6 +34,10 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
+
+    /* ============================================================
+       BACKGROUND FX — noise texture + scanlines
+    ============================================================ */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -42,12 +50,22 @@
       background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,.1) 3px, rgba(0,0,0,.1) 4px);
       pointer-events: none; z-index: 0;
     }
+
+    /* ============================================================
+       SCROLLBAR
+    ============================================================ */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
 
-    /* NAV */
+    /* ============================================================
+       NAV
+    ============================================================ */
     nav {
       position: fixed; top: 0; width: 100%;
       background: rgba(7,11,16,.88);
@@ -62,7 +80,9 @@
     .nav-links a { font-family: var(--font-mono); font-size: .78rem; color: var(--dim); text-decoration: none; text-transform: uppercase; letter-spacing: .15em; transition: color .25s; }
     .nav-links a:hover { color: var(--accent); }
 
-    /* HERO */
+    /* ============================================================
+       HERO
+    ============================================================ */
     #hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -98,17 +118,53 @@
     .hero-location span { color: var(--accent); }
     @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-    /* SECTIONS */
+    /* ============================================================
+       SECTION COMMONS
+    ============================================================ */
     section { padding: 6rem 0; position: relative; z-index: 1; }
     .section-header { margin-bottom: 3rem; }
     .section-tag { font-family: var(--font-mono); font-size: .75rem; color: var(--accent); letter-spacing: .25em; text-transform: uppercase; }
     .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin-top: .3rem; line-height: 1.2; }
     .section-title span { color: var(--accent); }
     .section-line { width: 60px; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); margin-top: 1rem; }
+
+    /* ============================================================
+       PANEL CARD
+    ============================================================ */
     .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; transition: border-color .3s, transform .3s, box-shadow .3s; }
     .panel:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,229,255,.08); }
 
-    /* ABOUT */
+    /* ============================================================
+       PROJECTS SECTION
+    ============================================================ */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .project-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: .75rem; }
+    .project-name { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .project-badge { font-family: var(--font-mono); font-size: .65rem; padding: .2rem .6rem; border-radius: 2px; text-transform: uppercase; letter-spacing: .1em; }
+    .badge-red    { background: rgba(255,77,109,.15); color: var(--accent2); border: 1px solid var(--accent2); }
+    .badge-blue   { background: rgba(0,229,255,.1);   color: var(--accent);  border: 1px solid var(--accent); }
+    .badge-green  { background: rgba(57,255,20,.1);   color: var(--green);   border: 1px solid var(--green); }
+    .badge-orange { background: rgba(255,165,0,.1);   color: #ffa500;        border: 1px solid #ffa500; }
+    .project-desc { font-size: .95rem; color: var(--text); margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .project-tag { font-family: var(--font-mono); font-size: .7rem; padding: .2rem .55rem; border: 1px solid var(--border); border-radius: 2px; color: var(--dim); }
+    .project-footer { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .project-gh-link { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); text-decoration: none; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
+    .project-gh-link:hover { color: var(--accent); }
+    .project-star { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); }
+
+    /* ============================================================
+       CURRENTLY LEARNING SECTION
+    ============================================================ */
+    .learning-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .learn-card { text-align: center; }
+    .learn-icon { font-size: 2rem; margin-bottom: .5rem; }
+    .learn-name { font-size: 1rem; font-weight: 700; color: #fff; }
+    .learn-sub { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); margin-top: .25rem; }
+
+    /* ============================================================
+       ABOUT / SKILLS SECTION
+    ============================================================ */
     .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; }
     .about-text p { color: var(--text); font-size: 1.05rem; margin-bottom: 1rem; }
     .about-text strong { color: var(--accent); font-weight: 600; }
@@ -121,8 +177,6 @@
     .about-facts { display: flex; flex-direction: column; gap: .9rem; }
     .fact-row { display: flex; align-items: flex-start; gap: .9rem; font-size: .95rem; color: var(--text); }
     .fact-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .05rem; }
-
-    /* SKILLS */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
     .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
     .skill-tag { font-family: var(--font-mono); font-size: .75rem; padding: .3rem .75rem; border: 1px solid var(--border); border-radius: 2px; color: var(--text); transition: all .2s; }
@@ -130,35 +184,9 @@
     .learning-note { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .72rem; color: var(--green); border: 1px solid var(--green); background: rgba(57,255,20,.06); padding: .25rem .7rem; border-radius: 2px; margin-bottom: 1.5rem; }
     .learning-note::before { content: '●'; animation: blink 1.5s step-end infinite; }
 
-    /* LEARNING */
-    .learning-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
-    .learn-card { text-align: center; }
-    .learn-icon { font-size: 2rem; margin-bottom: .5rem; }
-    .learn-name { font-size: 1rem; font-weight: 700; color: #fff; }
-    .learn-sub { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); margin-top: .25rem; }
-    .progress-bar { width: 100%; height: 3px; background: var(--border); border-radius: 2px; margin-top: .75rem; overflow: hidden; }
-    .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); border-radius: 2px; }
-
-    /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-    .project-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: .75rem; }
-    .project-name { font-size: 1.15rem; font-weight: 700; color: #fff; }
-    .project-badge { font-family: var(--font-mono); font-size: .65rem; padding: .2rem .6rem; border-radius: 2px; text-transform: uppercase; letter-spacing: .1em; }
-    .badge-red    { background: rgba(255,77,109,.15); color: var(--accent2); border: 1px solid var(--accent2); }
-    .badge-blue   { background: rgba(0,229,255,.1);   color: var(--accent);  border: 1px solid var(--accent); }
-    .badge-green  { background: rgba(57,255,20,.1);   color: var(--green);   border: 1px solid var(--green); }
-    .badge-orange { background: rgba(255,165,0,.1);   color: #ffa500;        border: 1px solid #ffa500; }
-    .project-desc { font-size: .95rem; color: var(--text); margin-bottom: 1rem; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
-    .project-tag { font-family: var(--font-mono); font-size: .7rem; padding: .2rem .55rem; border: 1px solid var(--border); border-radius: 2px; color: var(--dim); }
-
-    /* project footer with GitHub link */
-    .project-footer { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .project-gh-link { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); text-decoration: none; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
-    .project-gh-link:hover { color: var(--accent); }
-    .project-star { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); }
-
-    /* CONTACT */
+    /* ============================================================
+       CONTACT SECTION
+    ============================================================ */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
     .contact-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: 4px; text-decoration: none; color: var(--text); transition: all .25s; }
@@ -170,34 +198,46 @@
     .form-group input, .form-group textarea { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 2px; padding: .75rem 1rem; color: var(--text); font-family: var(--font-mono); font-size: .85rem; outline: none; transition: border-color .25s; resize: vertical; }
     .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
 
+    /* ============================================================
+       FOOTER
+    ============================================================ */
     footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; position: relative; z-index: 1; }
     footer p { font-family: var(--font-mono); font-size: .75rem; color: var(--dim); }
     footer span { color: var(--accent); }
 
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
     @media (max-width: 768px) {
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
       .info-grid { grid-template-columns: 1fr; }
     }
+
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ============================================================
+       NAV — fixed top bar
+  ============================================================ -->
   <nav>
     <div class="container">
       <div class="nav-logo">// <span>Dolunar</span>.sec</div>
       <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#learning">Learning</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#learning">Learning</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
+
+  <!-- ============================================================
+       HERO — landing screen
+  ============================================================ -->
   <section id="hero">
     <div class="container">
       <div class="hero-content">
@@ -218,11 +258,286 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
+
+  <!-- ============================================================
+       SECTION 01 — MY PROJECTS
+  ============================================================ -->
+  <section id="projects" style="background: var(--bg2);">
     <div class="container">
       <div class="section-header">
-        <p class="section-tag">// 01. Who am I</p>
+        <p class="section-tag">// 01. Build log</p>
+        <h2 class="section-title">My <span>projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <p style="font-family:var(--font-mono); font-size:.82rem; color:var(--dim); margin-bottom:2rem;">
+        Each one is a new experiment. Testing new things every day. 🧪
+      </p>
+      <div class="projects-grid">
+
+        <!-- CyberHumanum'Est — Competition winner -->
+        <div class="panel" style="border-color: rgba(255,215,0,.4); box-shadow: 0 0 20px rgba(255,215,0,.06);">
+          <div class="project-header">
+            <div class="project-name">CyberHumanum'Est 🥇</div>
+            <span class="project-badge badge-red">Competition</span>
+          </div>
+          <p class="project-desc">
+            High-intensity cyberwarfare simulation — Sept. 2025 to Feb. 2026.
+            My team <strong style="color:var(--accent)">Cryptanga</strong> won the competition.
+            Challenged technically and grew alongside passionate individuals in real attack/defense scenarios.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Cyberwarfare</span>
+            <span class="project-tag">Red/Blue Team</span>
+            <span class="project-tag">CTF</span>
+            <span class="project-tag">Teamwork</span>
+          </div>
+          <div class="project-footer">
+            <span style="font-family:var(--font-mono); font-size:.72rem; color: gold;">🏆 1st place — Team Cryptanga</span>
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Sept 2025 – Feb 2026</span>
+          </div>
+        </div>
+
+        <!-- Secure Virtualized Infrastructure -->
+        <div class="panel">
+          <div class="project-header">
+            <div class="project-name">Secure Virtualized Infrastructure</div>
+            <span class="project-badge badge-blue">Infra · Network</span>
+          </div>
+          <p class="project-desc">
+            Full enterprise-grade architecture on Proxmox — dual pfSense firewalls, VLAN segmentation (DMZ, servers, users),
+            internal PKI with OpenSSL, Wazuh SIEM, Nginx reverse proxy, Squid proxy, Zero Trust principles. Associated with Université de Lorraine.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Proxmox</span>
+            <span class="project-tag">pfSense</span>
+            <span class="project-tag">Wazuh / SIEM</span>
+            <span class="project-tag">Zero Trust</span>
+            <span class="project-tag">PKI / TLS</span>
+            <span class="project-tag">VLAN</span>
+            <span class="project-tag">Nginx</span>
+            <span class="project-tag">Linux</span>
+          </div>
+          <div class="project-footer">
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Université de Lorraine</span>
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Oct 2025 – Feb 2026</span>
+          </div>
+        </div>
+
+        <!-- Cyber Law Research -->
+        <div class="panel">
+          <div class="project-header">
+            <div class="project-name">Cyber Law Research</div>
+            <span class="project-badge badge-orange">Research</span>
+          </div>
+          <p class="project-desc">
+            Research paper on IT law: <em style="color:var(--text)">"How cyberweapons are transforming global power balances."</em>
+            Analysis of cyberwarfare legal frameworks and geopolitical implications. Co-authored with 4 contributors.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Cyber Law</span>
+            <span class="project-tag">Geopolitics</span>
+            <span class="project-tag">Research</span>
+            <span class="project-tag">Cyberweapons</span>
+          </div>
+          <div class="project-footer">
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Jan 2025 – Mar 2025</span>
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">👥 5 contributors</span>
+          </div>
+        </div>
+
+        <!-- NP-Hard Algorithms in C -->
+        <div class="panel">
+          <div class="project-header">
+            <div class="project-name">NP-Hard Algorithms</div>
+            <span class="project-badge badge-orange">Algorithms · C</span>
+          </div>
+          <p class="project-desc">
+            Solving NP-hard problems in C using LPT, FPTAS &amp; PTAS, and Dynamic Programming.
+            Deep dive into algorithmic complexity and exponential problem scaling.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">C</span>
+            <span class="project-tag">LPT</span>
+            <span class="project-tag">FPTAS / PTAS</span>
+            <span class="project-tag">Dynamic Programming</span>
+            <span class="project-tag">Complexity</span>
+          </div>
+          <div class="project-footer">
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Sept 2024 – Nov 2024</span>
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">👥 4 contributors</span>
+          </div>
+        </div>
+
+        <!-- Multiplayer Network App in Go -->
+        <div class="panel">
+          <div class="project-header">
+            <div class="project-name">Multiplayer Network App</div>
+            <span class="project-badge badge-green">Go · Network</span>
+          </div>
+          <p class="project-desc">
+            Server-client multiplayer game in Go — user auth, room management, saved games, API-generated words,
+            synchronized timers, in-game chat, and adjustable difficulty. Full-stack network programming.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Go</span>
+            <span class="project-tag">Server/Client</span>
+            <span class="project-tag">Authentication</span>
+            <span class="project-tag">REST API</span>
+            <span class="project-tag">Multiplayer</span>
+          </div>
+          <div class="project-footer">
+            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Sept 2024 – Oct 2024</span>
+          </div>
+        </div>
+
+        <!-- Détecteur de Défauts -->
+        <div class="panel">
+          <div class="project-header">
+            <div class="project-name">Détecteur de Défauts</div>
+            <span class="project-badge badge-orange">Tool · Python</span>
+          </div>
+          <p class="project-desc">
+            Defect detection software for an adhesive factory (Avery Dennison). Analyzes production output
+            to automatically identify flaws — a real-world industrial Python application.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Image Processing</span>
+            <span class="project-tag">Industrial</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Dolunar/Detecteur_Defauts" target="_blank" class="project-gh-link">
+              🐙 github.com/Dolunar/Detecteur_Defauts
+            </a>
+          </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="panel">
+          <div class="project-header">
+            <div class="project-name">Portfolio</div>
+            <span class="project-badge badge-green">Web</span>
+          </div>
+          <p class="project-desc">
+            This very site — hand-crafted HTML/CSS portfolio built from scratch to showcase
+            my cybersecurity journey. No frameworks, just pure code and self-hosting.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Self-hosted</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Dolunar/Portfolio" target="_blank" class="project-gh-link">
+              🐙 github.com/Dolunar/Portfolio
+            </a>
+            <span class="project-star">⭐ 1</span>
+          </div>
+        </div>
+
+        <!-- Next idea — placeholder -->
+        <div class="panel" style="border-style:dashed; opacity:.6;">
+          <div class="project-header">
+            <div class="project-name">Next idea...</div>
+            <span class="project-badge badge-red">Soon™</span>
+          </div>
+          <p class="project-desc">
+            Whenever a new idea pops into my mind, you can be sure I'll build it ASAP. Stay tuned.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">???</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 02 — ROADMAP / CURRENTLY LEARNING
+  ============================================================ -->
+  <section id="learning">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">// 02. Roadmap</p>
+        <h2 class="section-title">Currently <span>learning</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="learning-grid">
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🔍</div>
+          <div class="learn-name">Pentesting</div>
+          <div class="learn-sub">Ethical hacking fundamentals</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🌐</div>
+          <div class="learn-name">Web Security</div>
+          <div class="learn-sub">OWASP, XSS, SQLi, SSRF</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🐍</div>
+          <div class="learn-name">Python for Security</div>
+          <div class="learn-sub">Scripting &amp; tool building</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🏴</div>
+          <div class="learn-name">CTF Challenges</div>
+          <div class="learn-sub">HackTheBox / TryHackMe</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🖧</div>
+          <div class="learn-name">Networking</div>
+          <div class="learn-sub">TCP/IP, DNS, Protocols</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🐧</div>
+          <div class="learn-name">Linux Mastery</div>
+          <div class="learn-sub">Admin, scripting, hardening</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🖥️</div>
+          <div class="learn-name">Proxmox</div>
+          <div class="learn-sub">Virtualization &amp; homelab infra</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🔬</div>
+          <div class="learn-name">Reverse Engineering</div>
+          <div class="learn-sub">Ghidra, x86/x64 assembly</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🦠</div>
+          <div class="learn-name">Malware Development</div>
+          <div class="learn-sub">Conception &amp; offensive techniques</div>
+        </div>
+
+        <div class="panel learn-card">
+          <div class="learn-icon">🧫</div>
+          <div class="learn-name">Dynamic Malware Analysis</div>
+          <div class="learn-sub">Sandbox &amp; behavioral analysis</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 03 — ABOUT ME
+  ============================================================ -->
+  <section id="about" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">// 03. Who am I</p>
         <h2 class="section-title">About <span>me</span></h2>
         <div class="section-line"></div>
       </div>
@@ -250,7 +565,6 @@
             <div class="info-row"><span class="info-key">Mindset</span><span class="info-val">Build first, ask later</span></div>
           </div>
         </div>
-
         <div class="panel">
           <div class="skill-card-title">Fun facts</div>
           <div class="about-facts">
@@ -265,16 +579,20 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills" style="background: var(--bg2);">
+
+  <!-- ============================================================
+       SECTION 04 — TECHNICAL SKILLS
+  ============================================================ -->
+  <section id="skills">
     <div class="container">
       <div class="section-header">
-        <p class="section-tag">// 02. Arsenal</p>
+        <p class="section-tag">// 04. Arsenal</p>
         <h2 class="section-title">Technical <span>skills</span></h2>
         <div class="section-line"></div>
       </div>
       <div class="learning-note">Currently building this skill set — updated as I learn</div>
       <div class="skills-grid">
+
         <div class="panel">
           <div class="skill-card-title">Cybersecurity</div>
           <div class="skill-list">
@@ -286,6 +604,7 @@
             <span class="skill-tag">OWASP Top 10</span>
           </div>
         </div>
+
         <div class="panel">
           <div class="skill-card-title">Programming</div>
           <div class="skill-list">
@@ -296,8 +615,9 @@
             <span class="skill-tag">Git</span>
           </div>
         </div>
+
         <div class="panel">
-          <div class="skill-card-title">Infrastructure & Tools</div>
+          <div class="skill-card-title">Infrastructure &amp; Tools</div>
           <div class="skill-list">
             <span class="skill-tag">Linux CLI</span>
             <span class="skill-tag">Proxmox</span>
@@ -306,246 +626,16 @@
             <span class="skill-tag">VirtualBox</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CURRENTLY LEARNING -->
-  <section id="learning">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">// 03. Roadmap</p>
-        <h2 class="section-title">Currently <span>learning</span></h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="learning-grid">
-        <div class="panel learn-card">
-          <div class="learn-icon">🔍</div>
-          <div class="learn-name">Pentesting</div>
-          <div class="learn-sub">Ethical hacking fundamentals</div>
-        </div>
-        <div class="panel learn-card">
-          <div class="learn-icon">🌐</div>
-          <div class="learn-name">Web Security</div>
-          <div class="learn-sub">OWASP, XSS, SQLi, SSRF</div>
-        </div>
-        <div class="panel learn-card">
-          <div class="learn-icon">🐍</div>
-          <div class="learn-name">Python for Security</div>
-          <div class="learn-sub">Scripting &amp; tool building</div>
-        </div>
-        <div class="panel learn-card">
-          <div class="learn-icon">🏴</div>
-          <div class="learn-name">CTF Challenges</div>
-          <div class="learn-sub">TryHackMe</div>
-        </div>
-        <div class="panel learn-card">
-          <div class="learn-icon">🖧</div>
-          <div class="learn-name">Networking</div>
-          <div class="learn-sub">TCP/IP, DNS, Protocols</div>
-        </div>
-        <div class="panel learn-card">
-          <div class="learn-icon">🐧</div>
-          <div class="learn-name">Linux Mastery</div>
-          <div class="learn-sub">Admin, scripting, hardening</div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- PROJECTS -->
-  <section id="projects" style="background: var(--bg2);">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">// 04. Build log</p>
-        <h2 class="section-title">My <span>projects</span></h2>
-        <div class="section-line"></div>
-      </div>
-      <p style="font-family:var(--font-mono); font-size:.82rem; color:var(--dim); margin-bottom:2rem;">
-        Each one is a new experiment. Testing new things every day. 🧪
-      </p>
-      <div class="projects-grid">
-
-        <!-- PROJECT 1 — CyberWarfare Competition -->
-        <div class="panel" style="border-color: rgba(255,215,0,.4); box-shadow: 0 0 20px rgba(255,215,0,.06);">
-          <div class="project-header">
-            <div class="project-name">CyberHumanum'Est 🥇</div>
-            <span class="project-badge badge-red">Competition</span>
-          </div>
-          <p class="project-desc">
-            High-intensity cyberwarfare simulation — Sept. 2025 to Feb. 2026.
-            My team <strong style="color:var(--accent)">Cryptanga</strong> won the competition.
-            Challenged technically and grew alongside passionate individuals in real attack/defense scenarios.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Cyberwarfare</span>
-            <span class="project-tag">Red/Blue Team</span>
-            <span class="project-tag">CTF</span>
-            <span class="project-tag">Teamwork</span>
-          </div>
-          <div class="project-footer">
-            <span style="font-family:var(--font-mono); font-size:.72rem; color: gold;">🏆 1st place — Team Cryptanga</span>
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Sept 2025 – Feb 2026</span>
-          </div>
-        </div>
-
-        <!-- PROJECT 2 — Secure Infrastructure Proxmox -->
-        <div class="panel">
-          <div class="project-header">
-            <div class="project-name">Secure Virtualized Infrastructure</div>
-            <span class="project-badge badge-blue">Infra · Network</span>
-          </div>
-          <p class="project-desc">
-            Full enterprise-grade architecture on Proxmox — dual pfSense firewalls, VLAN segmentation (DMZ, servers, users),
-            internal PKI with OpenSSL, Wazuh SIEM, Nginx reverse proxy, Squid proxy, Zero Trust principles. Associated with Université de Lorraine.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Proxmox</span>
-            <span class="project-tag">pfSense</span>
-            <span class="project-tag">Wazuh / SIEM</span>
-            <span class="project-tag">Zero Trust</span>
-            <span class="project-tag">PKI / TLS</span>
-            <span class="project-tag">VLAN</span>
-            <span class="project-tag">Nginx</span>
-            <span class="project-tag">Linux</span>
-          </div>
-          <div class="project-footer">
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Université de Lorraine</span>
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Oct 2025 – Feb 2026</span>
-          </div>
-        </div>
-
-        <!-- PROJECT 3 — Cyber Law Research -->
-        <div class="panel">
-          <div class="project-header">
-            <div class="project-name">Cyber Law Research</div>
-            <span class="project-badge badge-orange">Research</span>
-          </div>
-          <p class="project-desc">
-            Research paper on IT law: <em style="color:var(--text)">"How cyberweapons are transforming global power balances."</em>
-            Analysis of cyberwarfare legal frameworks and geopolitical implications. Co-authored with 4 contributors.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Cyber Law</span>
-            <span class="project-tag">Geopolitics</span>
-            <span class="project-tag">Research</span>
-            <span class="project-tag">Cyberweapons</span>
-          </div>
-          <div class="project-footer">
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Jan 2025 – Mar 2025</span>
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">👥 5 contributors</span>
-          </div>
-        </div>
-
-        <!-- PROJECT 4 — NP-Hard Algorithms in C -->
-        <div class="panel">
-          <div class="project-header">
-            <div class="project-name">NP-Hard Algorithms</div>
-            <span class="project-badge badge-orange">Algorithms · C</span>
-          </div>
-          <p class="project-desc">
-            Solving NP-hard problems in C using LPT, FPTAS &amp; PTAS, and Dynamic Programming.
-            Deep dive into algorithmic complexity and exponential problem scaling.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">C</span>
-            <span class="project-tag">LPT</span>
-            <span class="project-tag">FPTAS / PTAS</span>
-            <span class="project-tag">Dynamic Programming</span>
-            <span class="project-tag">Complexity</span>
-          </div>
-          <div class="project-footer">
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Sept 2024 – Nov 2024</span>
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">👥 4 contributors</span>
-          </div>
-        </div>
-
-        <!-- PROJECT 5 — Network App in Go -->
-        <div class="panel">
-          <div class="project-header">
-            <div class="project-name">Multiplayer Network App</div>
-            <span class="project-badge badge-green">Go · Network</span>
-          </div>
-          <p class="project-desc">
-            Server-client multiplayer game in Go — user auth, room management, saved games, API-generated words,
-            synchronized timers, in-game chat, and adjustable difficulty. Full-stack network programming.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Go</span>
-            <span class="project-tag">Server/Client</span>
-            <span class="project-tag">Authentication</span>
-            <span class="project-tag">REST API</span>
-            <span class="project-tag">Multiplayer</span>
-          </div>
-          <div class="project-footer">
-            <span style="font-family:var(--font-mono); font-size:.7rem; color:var(--dim);">Sept 2024 – Oct 2024</span>
-          </div>
-        </div>
-
-        <!-- PROJECT 6 — Détecteur de Défauts -->
-        <div class="panel">
-          <div class="project-header">
-            <div class="project-name">Détecteur de Défauts</div>
-            <span class="project-badge badge-orange">Tool · Python</span>
-          </div>
-          <p class="project-desc">
-            Defect detection software for an adhesive factory (Avery Dennison). Analyzes production output
-            to automatically identify flaws — a real-world industrial Python application.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Image Processing</span>
-            <span class="project-tag">Industrial</span>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/Dolunar/Detecteur_Defauts" target="_blank" class="project-gh-link">
-              🐙 github.com/Dolunar/Detecteur_Defauts
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 7 — This Portfolio -->
-        <div class="panel">
-          <div class="project-header">
-            <div class="project-name">Portfolio</div>
-            <span class="project-badge badge-green">Web</span>
-          </div>
-          <p class="project-desc">
-            This very site — hand-crafted HTML/CSS portfolio built from scratch to showcase
-            my cybersecurity journey. No frameworks, just pure code and self-hosting.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">Self-hosted</span>
-          </div>
-          <div class="project-footer">
-            <a href="https://github.com/Dolunar/Portfolio" target="_blank" class="project-gh-link">
-              🐙 github.com/Dolunar/Portfolio
-            </a>
-            <span class="project-star">⭐ 1</span>
-          </div>
-        </div>
-
-        <!-- Next idea -->
-        <div class="panel" style="border-style:dashed; opacity:.6;">
-          <div class="project-header">
-            <div class="project-name">Next idea...</div>
-            <span class="project-badge badge-red">Soon™</span>
-          </div>
-          <p class="project-desc">
-            Whenever a new idea pops into my mind, you can be sure I'll build it ASAP. Stay tuned.
-          </p>
-          <div class="project-tags">
-            <span class="project-tag">???</span>
-          </div>
-        </div>
 
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
+
+  <!-- ============================================================
+       SECTION 05 — CONTACT
+  ============================================================ -->
+  <section id="contact" style="background: var(--bg2);">
     <div class="container">
       <div class="section-header">
         <p class="section-tag">// 05. Let's connect</p>
@@ -567,9 +657,9 @@
               <span class="contact-link-icon">🐙</span>
               <span class="contact-link-label">github.com/Dolunar</span>
             </a>
-            <a href="https://www.linkedin.com/in/Dolunar-m-0721b32a4/" target="_blank" class="contact-link">
+            <a href="https://www.linkedin.com/in/dolunay-m-0721b32a4/" target="_blank" class="contact-link">
               <span class="contact-link-icon">🔗</span>
-              <span class="contact-link-label">https://www.linkedin.com/in/dolunay-m-0721b32a4/</span>
+              <span class="contact-link-label">linkedin.com/in/dolunay-m-0721b32a4</span>
             </a>
           </div>
         </div>
@@ -594,7 +684,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
   <footer>
     <div class="container">
       <p>© 2026 <span>Dolunar</span> — Built with curiosity, caffeine &amp; a love for security. 🔐</p>
