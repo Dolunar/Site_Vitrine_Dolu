@@ -163,6 +163,30 @@
     .learn-sub { font-family: var(--font-mono); font-size: .72rem; color: var(--dim); margin-top: .25rem; }
 
     /* ============================================================
+       CERTIFICATIONS & EDUCATION SECTION
+    ============================================================ */
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .cert-card { display: flex; flex-direction: column; gap: .6rem; }
+    .cert-name { font-size: 1.05rem; font-weight: 700; color: #fff; }
+    .cert-issuer { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); letter-spacing: .08em; }
+    .cert-date { font-family: var(--font-mono); font-size: .7rem; color: var(--dim); }
+    .cert-id { font-family: var(--font-mono); font-size: .65rem; color: var(--dim); margin-top: .2rem; }
+    .cert-id span { color: var(--accent2); }
+
+    .edu-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .edu-card { display: grid; grid-template-columns: 40px 1fr; gap: 0 1.5rem; position: relative; }
+    .edu-card::before { content: ''; position: absolute; left: 19px; top: 42px; bottom: -1.5rem; width: 1px; background: var(--border); }
+    .edu-card:last-child::before { display: none; }
+    .edu-dot { width: 40px; height: 40px; background: var(--panel); border: 2px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: .2rem; z-index: 1; }
+    .edu-body { padding-bottom: .5rem; }
+    .edu-school { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); letter-spacing: .1em; text-transform: uppercase; }
+    .edu-degree { font-size: 1.05rem; font-weight: 700; color: #fff; margin: .2rem 0; }
+    .edu-dates { font-family: var(--font-mono); font-size: .7rem; color: var(--dim); margin-bottom: .6rem; }
+    .edu-desc { font-size: .88rem; color: var(--text); line-height: 1.6; }
+    .edu-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+    .edu-tag { font-family: var(--font-mono); font-size: .65rem; padding: .2rem .55rem; border: 1px solid var(--border); border-radius: 2px; color: var(--dim); }
+
+    /* ============================================================
        ABOUT / SKILLS SECTION
     ============================================================ */
     .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; }
@@ -227,8 +251,9 @@
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#learning">Learning</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -532,12 +557,137 @@
 
 
   <!-- ============================================================
-       SECTION 03 — ABOUT ME
+       SECTION 03 — CERTIFICATIONS
+  ============================================================ -->
+  <section id="certs">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">// 03. Certifications</p>
+        <h2 class="section-title">My <span>certifications</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="certs-grid">
+
+        <!-- Google Cloud Cybersecurity -->
+        <div class="panel cert-card">
+          <div style="font-size:1.6rem;">☁️</div>
+          <div class="cert-name">Google Cloud Cybersecurity</div>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-date">📅 May 2025</div>
+          <div class="cert-id">ID : <span>UBQU4FNA1D65</span></div>
+        </div>
+
+        <!-- Google Cybersecurity -->
+        <div class="panel cert-card">
+          <div style="font-size:1.6rem;">🔐</div>
+          <div class="cert-name">Google Cybersecurity</div>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-date">📅 Apr 2025</div>
+          <div class="cert-id">ID : <span>SD09OSPITVJJ</span></div>
+        </div>
+
+        <!-- SecNumAcadémie — ANSSI -->
+        <div class="panel cert-card">
+          <div style="font-size:1.6rem;">🛡️</div>
+          <div class="cert-name">SecNumAcadémie</div>
+          <div class="cert-issuer">ANSSI — Agence nationale de la sécurité des systèmes d'information</div>
+          <div class="cert-date">📅 Mar 2025</div>
+        </div>
+
+        <!-- ISO 27001 — LinkedIn -->
+        <div class="panel cert-card">
+          <div style="font-size:1.6rem;">📋</div>
+          <div class="cert-name">Gérer les risques cybersécurité avec l'ISO 27001</div>
+          <div class="cert-issuer">LinkedIn Learning</div>
+          <div class="cert-date">📅 Jul 2024</div>
+        </div>
+
+        <!-- Aperçu des menaces — PMI -->
+        <div class="panel cert-card">
+          <div style="font-size:1.6rem;">⚠️</div>
+          <div class="cert-name">Aperçu des menaces de cybersécurité</div>
+          <div class="cert-issuer">Project Management Institute</div>
+          <div class="cert-date">📅 Jul 2024</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 04 — EDUCATION
+  ============================================================ -->
+  <section id="education" style="background: var(--bg2);">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">// 04. Education</p>
+        <h2 class="section-title">My <span>studies</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-list">
+
+        <!-- Master 2 -->
+        <div class="edu-card panel">
+          <div class="edu-dot">🎓</div>
+          <div class="edu-body">
+            <div class="edu-school">Université de Lorraine</div>
+            <div class="edu-degree">Master 2 — Sécurité Informatique, Réseaux et Architectures Virtuelles</div>
+            <div class="edu-dates">Sept 2024 – Sept 2026</div>
+            <div class="edu-desc">
+              <strong style="color:var(--accent)">Foundations</strong> — Computer Networking, Information Systems Security, Advanced Programming (OOP &amp; Design Patterns), Algorithms, Mathematical Logic.<br><br>
+              <strong style="color:var(--accent)">Cybersecurity</strong> — Network Supervision, Access Control, IoT/CPS Security, Web &amp; Protocol Security, Malware Analysis.<br><br>
+              <strong style="color:var(--accent)">Management &amp; Compliance</strong> — IT Project Management, GDPR, Personal Data Protection.<br><br>
+              <strong style="color:var(--accent)">Leadership</strong> — Elected Class Representative (Master's Delegate).
+            </div>
+            <div class="edu-tags">
+              <span class="edu-tag">Network Security</span>
+              <span class="edu-tag">Malware Analysis</span>
+              <span class="edu-tag">IoT / CPS Security</span>
+              <span class="edu-tag">GDPR</span>
+              <span class="edu-tag">OOP</span>
+              <span class="edu-tag">Algorithms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Licence -->
+        <div class="edu-card panel">
+          <div class="edu-dot">📐</div>
+          <div class="edu-body">
+            <div class="edu-school">Université de Lorraine</div>
+            <div class="edu-degree">Licence — Mathematics and Computer Science</div>
+            <div class="edu-dates">Jul 2021 – Aug 2024</div>
+            <div class="edu-desc">
+              <strong style="color:var(--accent)">Security &amp; Networking</strong> — Fundamentals of computer security, network protocols, and infrastructure.<br><br>
+              <strong style="color:var(--accent)">Programming &amp; Theory</strong> — Programming languages, compilation theory, and software architecture.<br><br>
+              <strong style="color:var(--accent)">Mathematics &amp; Logic</strong> — Advanced algorithms, discrete mathematics, and mathematical logic for computation.
+            </div>
+            <div class="edu-tags">
+              <span class="edu-tag">Python</span>
+              <span class="edu-tag">C</span>
+              <span class="edu-tag">OOP</span>
+              <span class="edu-tag">Algorithms</span>
+              <span class="edu-tag">Networking</span>
+              <span class="edu-tag">Cybersecurity</span>
+              <span class="edu-tag">Data Analysis</span>
+              <span class="edu-tag">English</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION 05 — ABOUT ME
   ============================================================ -->
   <section id="about" style="background: var(--bg2);">
     <div class="container">
       <div class="section-header">
-        <p class="section-tag">// 03. Who am I</p>
+        <p class="section-tag">// 05. Who am I</p>
         <h2 class="section-title">About <span>me</span></h2>
         <div class="section-line"></div>
       </div>
@@ -586,7 +736,7 @@
   <section id="skills">
     <div class="container">
       <div class="section-header">
-        <p class="section-tag">// 04. Arsenal</p>
+        <p class="section-tag">// 06. Arsenal</p>
         <h2 class="section-title">Technical <span>skills</span></h2>
         <div class="section-line"></div>
       </div>
@@ -633,12 +783,12 @@
 
 
   <!-- ============================================================
-       SECTION 05 — CONTACT
+       SECTION 07 — CONTACT
   ============================================================ -->
   <section id="contact" style="background: var(--bg2);">
     <div class="container">
       <div class="section-header">
-        <p class="section-tag">// 05. Let's connect</p>
+        <p class="section-tag">// 07. Let's connect</p>
         <h2 class="section-title">Get in <span>touch</span></h2>
         <div class="section-line"></div>
       </div>
@@ -649,9 +799,9 @@
             a cool project idea, or just a good conversation — don't hesitate to reach out!
           </p>
           <div class="contact-links">
-            <a href="mailto:Confidential@---mail.com" class="contact-link">
+            <a href="/cdn-cgi/l/email-protection#e2a18d8c848b86878c968b838ea2cfcfcf8f838b8ecc818d8f" class="contact-link">
               <span class="contact-link-icon">✉️</span>
-              <span class="contact-link-label">Confidential@---mail.com</span>
+              <span class="contact-link-label"><span class="__cf_email__" data-cfemail="bdfed2d3dbd4d9d8d3c9d4dcd1fd909090d0dcd4d193ded2d0">[email&#160;protected]</span></span>
             </a>
             <a href="https://github.com/Dolunar" target="_blank" class="contact-link">
               <span class="contact-link-icon">🐙</span>
@@ -690,9 +840,3 @@
   ============================================================ -->
   <footer>
     <div class="container">
-      <p>© 2026 <span>Dolunar</span> — Built with curiosity, caffeine &amp; a love for security. 🔐</p>
-    </div>
-  </footer>
-
-</body>
-</html>
